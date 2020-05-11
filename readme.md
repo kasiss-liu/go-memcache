@@ -14,24 +14,24 @@ go get -u github.com/kasiss-liu/go-memcache
 ```
 
 ```go
-    cs := NewCacheStore(10, 1)
-	fmt.Println("Cap:",cs.Cap())
-	for i := 0; i < 15; i++ {
-		cs.Save(fmt.Sprintf("hello%d", i), fmt.Sprintf("world%d", i))
-	}
-	fmt.Println("Len:",cs.Len())
-	fmt.Println("hello0:",cs.Get("hello0"))
-	fmt.Println("hello14:",cs.Get("hello14"))
+cs := NewCacheStore(10, 1)
+fmt.Println("Cap:",cs.Cap())
+for i := 0; i < 15; i++ {
+    cs.Save(fmt.Sprintf("hello%d", i), fmt.Sprintf("world%d", i))
+}
+fmt.Println("Len:",cs.Len())
+fmt.Println("hello0:",cs.Get("hello0"))
+fmt.Println("hello14:",cs.Get("hello14"))
 
-	fmt.Println("Save:",cs.Save("mapvalue", map[string]string{"1": "aa"}))
-    fmt.Println("mapvalue",cs.Get("mapvalue"))
-    
-    /**
-        Cap: 10
-        Len: 10
-        hello0: 
-        hello14: world14
-        Save: true
-        mapvalue: map[1:aa]
-    */
+fmt.Println("Save:",cs.Save("mapvalue", map[string]string{"1": "aa"}))
+fmt.Println("mapvalue",cs.Get("mapvalue"))
+
+/**
+Cap: 10
+Len: 10
+hello0: 
+hello14: world14
+Save: true
+mapvalue: map[1:aa]
+*/
 ```
